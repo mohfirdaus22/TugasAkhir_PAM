@@ -47,9 +47,9 @@ Aplikasi ini dibuat untuk admin
 ## Pembagian Tugas
 Moh Firdaus Maulana NI - 20210140089
 - pembuatan halaman start
--
+- data class penghuni
 
 
 Muhamat Zaqy Munif - 20210140097
 - pembuatan halaman home 
--
+- data class kamar
