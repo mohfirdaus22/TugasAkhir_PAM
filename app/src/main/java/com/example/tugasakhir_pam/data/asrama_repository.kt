@@ -16,33 +16,33 @@ interface PenghuniRepository {
     suspend fun save(asrama: Penghuni): String
     suspend fun update(asrama: Penghuni)
     suspend fun delete(penghuniId: String)
-    fun getKontakById(penghuniId: String): Flow<Penghuni>
+    fun getPenghuniById(penghuniId: String): Flow<Penghuni>
 }
-class KontakRepositoryImpl(private val firestore: FirebaseFirestore) : PenghuniRepository {
+class PenghuniRepositoryImpl(private val firestore: FirebaseFirestore) : PenghuniRepository {
     override fun getAll(): Flow<List<Penghuni>> = flow {
         val snapshot = firestore.collection("Penghuni")
             .orderBy("nama", Query.Direction.ASCENDING)
             .get()
             .await()
-        val kontak = snapshot.toObjects(Penghuni::class.java)
-        emit(kontak)
+        val penghuni = snapshot.toObjects(Penghuni::class.java)
+        emit(penghuni)
     }.flowOn(Dispatchers.IO)
 
 
-    override suspend fun save(penghuni: Penghuni): String {
+    override suspend fun save(asrama: Penghuni): String {
         return try {
-            val documentReference = firestore.collection("Penghuni").add(penghuni).await()
-            // Update the Kontak with the Firestore-generated DocumentReference
+            val documentReference = firestore.collection("Penghuni").add(asrama).await()
+            // Update the Penghuni with the Firestore-generated DocumentReference
             firestore.collection("Penghuni").document(documentReference.id)
-                .set(penghuni.copy(id = documentReference.id))
+                .set(asrama.copy(id = documentReference.id))
             "Berhasil + ${documentReference.id}"
         } catch (e: Exception) {
             Log.w(ContentValues.TAG, "Error adding document", e)
             "Gagal $e"
         }
     }
-    override suspend fun update(penghuni: Penghuni) {
-        firestore.collection("Penghuni").document(penghuni.id).set(penghuni).await()
+    override suspend fun update(asrama: Penghuni) {
+        firestore.collection("Penghuni").document(asrama.id).set(asrama).await()
     }
 
     override suspend fun delete(penghuniId: String) {
