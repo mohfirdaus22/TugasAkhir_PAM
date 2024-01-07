@@ -30,5 +30,18 @@ class KamarRepositoryImpl(private val firestore: FirebaseFirestore) : KamarRepos
     }.flowOn(Dispatchers.IO)
 
 
+    override suspend fun save(asrama: Kamar): String {
+        return try {
+            val documentReference = firestore.collection("Kamar").add(asrama).await()
+            // Update the Kamar with the Firestore-generated DocumentReference
+            firestore.collection("Kamar").document(documentReference.id)
+                .set(asrama.copy(nokamar = documentReference.id))
+            "Berhasil + ${documentReference.id}"
+        } catch (e: Exception) {
+            Log.w(ContentValues.TAG, "Error adding document", e)
+            "Gagal $e"
+        }
+    }
+
 
 }
