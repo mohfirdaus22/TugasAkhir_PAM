@@ -1,0 +1,29 @@
+{
+  "project_info": {
+    "project_number": "750109926343",
+    "project_id": "tugasakhir-pam",
+    "storage_bucket": "tugasakhir-pam.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:750109926343:android:a0b8e79fbf1618e074efe2",
+        "android_client_info": {
+          "package_name": "com.example.tugasakhir_pam"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyDeiaAjt2tRTraOjmJoUxeJhbPgzdNCD0M"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
