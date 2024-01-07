@@ -41,7 +41,7 @@ fun HalamanUtama(
         Spacer(modifier = Modifier.padding(dimensionResource(id = R.dimen.padding_medium)))
 
         Column(
-            modifier = Modifier.fillMaxSize(),
+            modifier = Modifier.fillMaxWidth(),
             verticalArrangement = Arrangement.spacedBy(dimensionResource(id = R.dimen.padding_medium)),
             horizontalAlignment = Alignment.CenterHorizontally
         ) {
