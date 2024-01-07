@@ -17,5 +17,18 @@ interface KamarRepository {
     suspend fun save(asrama: Kamar): String
     suspend fun update(asrama: Kamar)
     suspend fun delete(kamarId: String)
-    fun getPenghuniById(kamarId: String): Flow<Penghuni>
+    fun getKamarById(kamarId: String): Flow<Penghuni>
+}
+class KamarRepositoryImpl(private val firestore: FirebaseFirestore) : KamarRepository {
+    override fun getAll(): Flow<List<Kamar>> = flow {
+        val snapshot = firestore.collection("Kamar")
+            .orderBy("nama", Query.Direction.ASCENDING)
+            .get()
+            .await()
+        val kamar = snapshot.toObjects(Kamar::class.java)
+        emit(kamar)
+    }.flowOn(Dispatchers.IO)
+
+
+
 }
