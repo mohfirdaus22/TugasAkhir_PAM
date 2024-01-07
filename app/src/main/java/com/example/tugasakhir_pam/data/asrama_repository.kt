@@ -1,11 +1,14 @@
 package com.example.tugasakhir_pam.data
 
+import android.content.ContentValues
+import android.util.Log
 import com.example.tugasakhir_pam.model.Penghuni
 import com.google.firebase.firestore.FirebaseFirestore
 import com.google.firebase.firestore.Query
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.flow.Flow
 import kotlinx.coroutines.flow.flow
+import kotlinx.coroutines.flow.flowOn
 import kotlinx.coroutines.tasks.await
 
 interface PenghuniRepository {
@@ -15,4 +18,3 @@ interface PenghuniRepository {
     suspend fun delete(penghuniId: String)
     fun getKontakById(penghuniId: String): Flow<Penghuni>
 }
-
