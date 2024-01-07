@@ -1,4 +1,8 @@
 # Final Project Pengembangan Aplikasi Mobile 2024
+Moh Firdaus Maulana NI - 20210140089
+Muhamat Zaqy Munif - 20210140097
+
+
 ## Aplikasi Manajemen Asrama
 
 Aplikasi Manajemen Asrama adalah sebuah aplikasi yang dirancang untuk membantu pengelola asrama dalam mengelola informasi penghuni, kamar, dan detail lainnya. Aplikasi ini mempermudah pengelolaan asrama dan menyediakan antarmuka yang bersahabat untuk admin.
