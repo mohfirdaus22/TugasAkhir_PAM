@@ -48,6 +48,8 @@ Aplikasi ini dibuat untuk admin
 Moh Firdaus Maulana NI - 20210140089
 - pembuatan halaman start
 - data class penghuni
+- KamarRepository
+- PenghuniRepository
 
 
 Muhamat Zaqy Munif - 20210140097
