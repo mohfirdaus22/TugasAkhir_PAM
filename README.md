@@ -1,1 +1,2 @@
-<img width="412" alt="image" src="https://github.com/mohfirdaus22/TugasAkhir_PAM/assets/115222075/5408863f-67ed-46dd-8f59-c60da4a29075">
+<img width="377" alt="image" src="https://github.com/mohfirdaus22/TugasAkhir_PAM/assets/115222075/2b86d11a-989c-4400-9398-309aae0943a5">
+
