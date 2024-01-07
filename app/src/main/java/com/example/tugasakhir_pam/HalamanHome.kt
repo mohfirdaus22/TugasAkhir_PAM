@@ -59,6 +59,17 @@ fun HalamanUtama(
                 style = MaterialTheme.typography.titleMedium
             )
         }
+        Button(
+            onClick = { /*TODO*/ },
+            modifier = Modifier
+                .fillMaxWidth()
+                .height(56.dp)
+        ) {
+            Text(
+                stringResource(id = R.string.detail),
+                style = MaterialTheme.typography.titleMedium
+            )
+        }
     }
 }
 
