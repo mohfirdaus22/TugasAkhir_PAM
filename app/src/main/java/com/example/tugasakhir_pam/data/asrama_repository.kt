@@ -41,7 +41,21 @@ class KontakRepositoryImpl(private val firestore: FirebaseFirestore) : PenghuniR
             "Gagal $e"
         }
     }
+    override suspend fun update(penghuni: Penghuni) {
+        firestore.collection("Penghuni").document(penghuni.id).set(penghuni).await()
+    }
 
+    override suspend fun delete(penghuniId: String) {
+        firestore.collection("Penghuni").document(penghuniId).delete().await()
+    }
+
+    override fun getPenghuniById(penghuniId: String): Flow<Penghuni> {
+        return flow {
+            val snapshot = firestore.collection("Penghuni").document(penghuniId).get().await()
+            val penghuni = snapshot.toObject(Penghuni::class.java)
+            emit(penghuni!!)
+        }.flowOn(Dispatchers.IO)
+    }
 
 
 }
