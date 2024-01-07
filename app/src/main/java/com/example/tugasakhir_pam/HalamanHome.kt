@@ -35,40 +35,49 @@ fun HalamanUtama(
         modifier = Modifier
             .fillMaxSize()
             .padding(dimensionResource(id = R.dimen.padding_medium)),
-        horizontalAlignment = Alignment.CenterHorizontally
+        horizontalAlignment = Alignment.CenterHorizontally,
+        verticalArrangement = Arrangement.Center
     ){
-        Button(
-            onClick = { /*TODO*/ },
-            modifier = Modifier
-                .fillMaxWidth()
-                .height(56.dp)
+        Spacer(modifier = Modifier.padding(dimensionResource(id = R.dimen.padding_medium)))
+
+        Column(
+            modifier = Modifier.fillMaxSize(),
+            verticalArrangement = Arrangement.spacedBy(dimensionResource(id = R.dimen.padding_medium)),
+            horizontalAlignment = Alignment.CenterHorizontally
         ) {
-            Text(
-                stringResource(id = R.string.data_penghuni),
-                style = MaterialTheme.typography.titleMedium
-            )
-        }
-        Button(
-            onClick = { /*TODO*/ },
-            modifier = Modifier
-                .fillMaxWidth()
-                .height(56.dp)
-        ) {
-            Text(
-                stringResource(id = R.string.data_kamar),
-                style = MaterialTheme.typography.titleMedium
-            )
-        }
-        Button(
-            onClick = { /*TODO*/ },
-            modifier = Modifier
-                .fillMaxWidth()
-                .height(56.dp)
-        ) {
-            Text(
-                stringResource(id = R.string.detail),
-                style = MaterialTheme.typography.titleMedium
-            )
+            Button(
+                onClick = { /*TODO*/ },
+                modifier = Modifier
+                    .fillMaxWidth()
+                    .height(56.dp)
+            ) {
+                Text(
+                    stringResource(id = R.string.data_penghuni),
+                    style = MaterialTheme.typography.titleMedium
+                )
+            }
+            Button(
+                onClick = { /*TODO*/ },
+                modifier = Modifier
+                    .fillMaxWidth()
+                    .height(56.dp)
+            ) {
+                Text(
+                    stringResource(id = R.string.data_kamar),
+                    style = MaterialTheme.typography.titleMedium
+                )
+            }
+            Button(
+                onClick = { /*TODO*/ },
+                modifier = Modifier
+                    .fillMaxWidth()
+                    .height(56.dp)
+            ) {
+                Text(
+                    stringResource(id = R.string.detail),
+                    style = MaterialTheme.typography.titleMedium
+                )
+            }
         }
     }
 }

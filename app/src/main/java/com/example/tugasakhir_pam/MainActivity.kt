@@ -41,8 +41,6 @@ fun Greeting(name: String, modifier: Modifier = Modifier) {
 @Composable
 fun GreetingPreview() {
     TugasAkhir_PAMTheme {
-        HalamanHome {
-
-        }
+        HalamanUtama()
     }
 }
