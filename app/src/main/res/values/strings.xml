@@ -1,3 +1,16 @@
 <resources>
-    <string name="app_name">TugasAkhir_PAM</string>
+    <string name="app_name">AsramaKu</string>
+    <string name="name">Nama</string>
+    <string name="alamat">Alamat</string>
+    <string name="nohp">No HP</string>
+    <string name="email">Email</string>
+    <string name="data_kamar">Data Kamar</string>
+    <string name="data_penghuni">Data Penghuni</string>
+    <string name="detail">Detail</string>
+    <string name="submit">Submit</string>
+    <string name="kode_kmr">Kode Kamar</string>
+    <string name="type_kmr">Type Kamar</string>
+    <string name="selanjutnya">Next</string>
+    <string name="kembali">Back</string>
+
 </resources>
