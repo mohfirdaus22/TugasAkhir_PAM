@@ -3,8 +3,12 @@ package com.example.tugasakhir_pam.ui.Penghuni.Add
 import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.fillMaxWidth
+import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.text.KeyboardOptions
+import androidx.compose.material3.AlertDialogDefaults.shape
+import androidx.compose.material3.Button
 import androidx.compose.material3.ExperimentalMaterial3Api
+import androidx.compose.material3.MaterialTheme
 import androidx.compose.material3.OutlinedTextField
 import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
@@ -28,7 +32,24 @@ fun EntryBodyPenghuni(
     onSaveClickPenghuni: () -> Unit,
     modifier: Modifier = Modifier
 ){
+    Column(
+        verticalArrangement = Arrangement.spacedBy(12.dp),
+        modifier = modifier.padding(12.dp)
+    ) {
+        FormInputPenghuni(
+            addEventPenghuni = addUIStatePenghuni.addEventPenghuni,
+            onValueChangePenghuni = onPenghuniValueChange,
+            modifier = Modifier.fillMaxWidth()
+        )
 
+        Button(
+            onClick = onSaveClickPenghuni,
+            shape = MaterialTheme.shapes.small,
+            modifier = Modifier.fillMaxWidth()
+        ) {
+            Text(text = "Submit")
+        }
+    }
 }
 
 @OptIn(ExperimentalMaterial3Api::class)
