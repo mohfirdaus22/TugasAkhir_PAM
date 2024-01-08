@@ -3,11 +3,13 @@ package com.example.tugasakhir_pam.ui.Penghuni.Add
 import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.fillMaxWidth
+import androidx.compose.foundation.text.KeyboardOptions
 import androidx.compose.material3.ExperimentalMaterial3Api
 import androidx.compose.material3.OutlinedTextField
 import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
+import androidx.compose.ui.text.input.KeyboardType
 import androidx.compose.ui.unit.dp
 import com.example.tugasakhir_pam.AddEventPenghuni
 import com.example.tugasakhir_pam.navigation.DestinasiNavigasi
@@ -33,6 +35,34 @@ fun FormInputPenghuni(
             value = addEventPenghuni.name,
             onValueChange = { onValueChangePenghuni(addEventPenghuni.copy(name = it)) },
             label = { Text("Nama") },
+            modifier = Modifier.fillMaxWidth(),
+            enabled = enabled,
+            singleLine = true
+        )
+
+        OutlinedTextField(
+            value = addEventPenghuni.alamat,
+            onValueChange = { onValueChangePenghuni(addEventPenghuni.copy(alamat = it)) },
+            label = { Text("Alamat") },
+            modifier = Modifier.fillMaxWidth(),
+            enabled = enabled,
+            singleLine = true
+        )
+
+        OutlinedTextField(
+            value = addEventPenghuni.nohp,
+            onValueChange = { onValueChangePenghuni(addEventPenghuni.copy(nohp = it)) },
+            keyboardOptions = KeyboardOptions(keyboardType = KeyboardType.Number),
+            label = { Text(text = "Nomor Telepon") },
+            modifier = Modifier.fillMaxWidth(),
+            enabled = enabled,
+            singleLine = true
+        )
+
+        OutlinedTextField(
+            value = addEventPenghuni.email,
+            onValueChange = { onValueChangePenghuni(addEventPenghuni.copy(email = it)) },
+            label = { Text("Email") },
             modifier = Modifier.fillMaxWidth(),
             enabled = enabled,
             singleLine = true
