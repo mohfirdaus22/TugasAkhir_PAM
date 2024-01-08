@@ -38,3 +38,7 @@ data class AddUIStatePenghuni(
 fun Penghuni.toUIStatePenghuni():AddUIStatePenghuni = AddUIStatePenghuni(
     addEventPenghuni = this.toDetailPenghuni()
 )
+
+data class DetailUIStatePenghuni(
+    val addEventPenghuni: AddEventPenghuni = AddEventPenghuni()
+)
