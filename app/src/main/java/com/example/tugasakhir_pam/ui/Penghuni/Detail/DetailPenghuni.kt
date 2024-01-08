@@ -14,7 +14,24 @@ import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.unit.dp
+import com.example.tugasakhir_pam.DetailUIStatePenghuni
 import com.example.tugasakhir_pam.model.Penghuni
+
+
+@Composable
+private fun ItemDetailsBodyPenghuni(
+    detailUIStatePenghuni: DetailUIStatePenghuni,
+    onDeletePenghuni: () -> Unit,
+    modifier: Modifier = Modifier
+) {
+    Column (
+        modifier = modifier.padding(12.dp),
+        verticalArrangement = Arrangement.spacedBy(12.dp)
+    ){
+
+    }
+}
+
 
 @Composable
 fun ItemDetailsPenghuni(
