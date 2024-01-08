@@ -1,6 +1,14 @@
 package com.example.tugasakhir_pam.ui.Penghuni.Add
 
+import androidx.compose.foundation.layout.Arrangement
+import androidx.compose.foundation.layout.Column
+import androidx.compose.foundation.layout.fillMaxWidth
+import androidx.compose.material3.ExperimentalMaterial3Api
+import androidx.compose.material3.OutlinedTextField
+import androidx.compose.material3.Text
+import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
+import androidx.compose.ui.unit.dp
 import com.example.tugasakhir_pam.AddEventPenghuni
 import com.example.tugasakhir_pam.navigation.DestinasiNavigasi
 
@@ -9,11 +17,25 @@ object DestinasiEntryPenghuni : DestinasiNavigasi{
     override val titleRes = "Entry_Penghuni"
 }
 
+@OptIn(ExperimentalMaterial3Api::class)
+@Composable
 fun FormInputPenghuni(
     addEventPenghuni: AddEventPenghuni,
     modifier: Modifier = Modifier,
     onValueChangePenghuni: (AddEventPenghuni) -> Unit = {},
     enabled: Boolean = true
 ){
-
+    Column(
+        modifier = modifier,
+        verticalArrangement = Arrangement.spacedBy(12.dp)
+    ) {
+        OutlinedTextField(
+            value = addEventPenghuni.name,
+            onValueChange = { onValueChangePenghuni(addEventPenghuni.copy(name = it)) },
+            label = { Text("Nama") },
+            modifier = Modifier.fillMaxWidth(),
+            enabled = enabled,
+            singleLine = true
+        )
+    }
 }
