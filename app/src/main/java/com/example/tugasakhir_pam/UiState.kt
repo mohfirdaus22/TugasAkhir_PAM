@@ -14,3 +14,19 @@ data class  AddEventPenghuni(
     val nohp: String = "",
     val email: String = ""
 )
+
+fun Penghuni.toDetailPenghuni(): AddEventPenghuni = AddEventPenghuni(
+    id = id,
+    name = name,
+    alamat = alamat,
+    nohp = nohp,
+    email = email
+)
+
+fun AddEventPenghuni.toPenghuni() = Penghuni(
+    id = id,
+    name = name,
+    alamat = alamat,
+    nohp = nohp,
+    email = email
+)
