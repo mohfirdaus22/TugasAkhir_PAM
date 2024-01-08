@@ -12,11 +12,23 @@ import androidx.compose.ui.Modifier
 import androidx.compose.ui.text.input.KeyboardType
 import androidx.compose.ui.unit.dp
 import com.example.tugasakhir_pam.AddEventPenghuni
+import com.example.tugasakhir_pam.AddUIStatePenghuni
 import com.example.tugasakhir_pam.navigation.DestinasiNavigasi
 
 object DestinasiEntryPenghuni : DestinasiNavigasi{
     override val route = "item_entry"
     override val titleRes = "Entry_Penghuni"
+}
+
+
+@Composable
+fun EntryBodyPenghuni(
+    addUIStatePenghuni: AddUIStatePenghuni,
+    onPenghuniValueChange: (AddEventPenghuni) -> Unit,
+    onSaveClickPenghuni: () -> Unit,
+    modifier: Modifier = Modifier
+){
+
 }
 
 @OptIn(ExperimentalMaterial3Api::class)
