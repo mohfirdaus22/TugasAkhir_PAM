@@ -30,3 +30,11 @@ fun AddEventPenghuni.toPenghuni() = Penghuni(
     nohp = nohp,
     email = email
 )
+
+data class AddUIStatePenghuni(
+    val addEventPenghuni: AddEventPenghuni = AddEventPenghuni(),
+)
+
+fun Penghuni.toUIStatePenghuni():AddUIStatePenghuni = AddUIStatePenghuni(
+    addEventPenghuni = this.toDetailPenghuni()
+)
