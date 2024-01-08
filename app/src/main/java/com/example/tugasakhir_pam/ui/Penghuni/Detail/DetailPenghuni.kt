@@ -6,6 +6,15 @@ import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.text.font.FontWeight
+import com.example.tugasakhir_pam.model.Penghuni
+
+@Composable
+fun ItemDetailsPenghuni(
+    penghuni: Penghuni,
+    modifier: Modifier = Modifier
+){
+
+}
 
 @Composable
 private fun ItemDetailsRowPenghuni(
