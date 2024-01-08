@@ -23,8 +23,15 @@ import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.unit.dp
 import com.example.tugasakhir_pam.DetailUIStatePenghuni
 import com.example.tugasakhir_pam.model.Penghuni
+import com.example.tugasakhir_pam.navigation.DestinasiNavigasi
 import com.example.tugasakhir_pam.toPenghuni
 
+object DetailDestinationPenghuni: DestinasiNavigasi {
+    override val route = "item_details_penghuni"
+    override val titleRes = "Detail Penghuni"
+    const val penghuniId = "itemPenghuniId"
+    val routeWithArgs = "$route/{$penghuniId}"
+}
 
 @Composable
 private fun ItemDetailsBodyPenghuni(
