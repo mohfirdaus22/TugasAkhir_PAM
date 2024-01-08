@@ -9,13 +9,19 @@ import androidx.compose.foundation.layout.padding
 import androidx.compose.material3.Card
 import androidx.compose.material3.CardDefaults
 import androidx.compose.material3.MaterialTheme
+import androidx.compose.material3.OutlinedButton
 import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
+import androidx.compose.runtime.getValue
+import androidx.compose.runtime.mutableStateOf
+import androidx.compose.runtime.saveable.rememberSaveable
+import androidx.compose.runtime.setValue
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.unit.dp
 import com.example.tugasakhir_pam.DetailUIStatePenghuni
 import com.example.tugasakhir_pam.model.Penghuni
+import com.example.tugasakhir_pam.toPenghuni
 
 
 @Composable
@@ -28,6 +34,31 @@ private fun ItemDetailsBodyPenghuni(
         modifier = modifier.padding(12.dp),
         verticalArrangement = Arrangement.spacedBy(12.dp)
     ){
+        var deleteConfirmationRequiredPenghuni by rememberSaveable {
+            mutableStateOf(false)
+        }
+        ItemDetailsPenghuni(
+            penghuni = detailUIStatePenghuni.addEventPenghuni.toPenghuni(),
+            modifier = Modifier.fillMaxWidth()
+        )
+        OutlinedButton(
+            onClick = { deleteConfirmationRequiredPenghuni = true },
+            shape = MaterialTheme.shapes.small,
+            modifier = Modifier.fillMaxWidth()
+        ) {
+            Text("Delete")
+        }
+        if (deleteConfirmationRequiredPenghuni){
+            DeleteConfirmationDialog(
+                onDeleteConfirmPenghuni = {
+                    deleteConfirmationRequiredPenghuni = false
+                    onDeletePenghuni()
+                },
+                onDeleteCancelPenghuni = {
+                    deleteConfirmationRequiredPenghuni = false
+                },modifier = Modifier.padding(12.dp)
+            )
+        }
 
     }
 }
@@ -95,3 +126,5 @@ private fun ItemDetailsRowPenghuni(
         Text(text = itemDetailPenghuni, fontWeight = FontWeight.Bold)
     }
 }
+
+
