@@ -50,6 +50,7 @@ Moh Firdaus Maulana NI - 20210140089
 - data class penghuni
 - KamarRepository
 - PenghuniRepository
+- AsramaContainer
 
 
 Muhamat Zaqy Munif - 20210140097
