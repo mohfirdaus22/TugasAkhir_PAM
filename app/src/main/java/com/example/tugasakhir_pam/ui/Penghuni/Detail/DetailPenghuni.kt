@@ -34,7 +34,34 @@ fun ItemDetailsPenghuni(
                 .padding(12.dp),
             verticalArrangement = Arrangement.spacedBy(12.dp)
         ) {
-
+            ItemDetailsRowPenghuni(
+                labelResIDPenghuni = "Nama",
+                itemDetailPenghuni = penghuni.name,
+                modifier = Modifier.padding(
+                    horizontal = 12.dp
+                )
+            )
+            ItemDetailsRowPenghuni(
+                labelResIDPenghuni = "Alamat",
+                itemDetailPenghuni = penghuni.alamat,
+                modifier = Modifier.padding(
+                    horizontal = 12.dp
+                )
+            )
+            ItemDetailsRowPenghuni(
+                labelResIDPenghuni = "No Telepon",
+                itemDetailPenghuni = penghuni.nohp,
+                modifier = Modifier.padding(
+                    horizontal = 12.dp
+                )
+            )
+            ItemDetailsRowPenghuni(
+                labelResIDPenghuni = "Email",
+                itemDetailPenghuni = penghuni.email,
+                modifier = Modifier.padding(
+                    horizontal = 12.dp
+                )
+            )
         }
     }
 }
