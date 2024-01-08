@@ -6,11 +6,13 @@ import androidx.compose.foundation.layout.Row
 import androidx.compose.foundation.layout.Spacer
 import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.padding
+import androidx.compose.material3.AlertDialog
 import androidx.compose.material3.Card
 import androidx.compose.material3.CardDefaults
 import androidx.compose.material3.MaterialTheme
 import androidx.compose.material3.OutlinedButton
 import androidx.compose.material3.Text
+import androidx.compose.material3.TextButton
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.getValue
 import androidx.compose.runtime.mutableStateOf
@@ -128,3 +130,26 @@ private fun ItemDetailsRowPenghuni(
 }
 
 
+@Composable
+private fun DeleteConfirmationDialog(
+    onDeleteConfirmPenghuni: () -> Unit,
+    onDeleteCancelPenghuni: () -> Unit,
+    modifier: Modifier = Modifier
+) {
+    AlertDialog(
+        onDismissRequest = { /*TODO*/ },
+        title = { Text("Are you sure")},
+        text = { Text("Delete")},
+        modifier = modifier,
+        dismissButton = {
+            TextButton(onClick = onDeleteCancelPenghuni) {
+                Text(text = "No")
+            }
+        },
+        confirmButton = {
+            TextButton(onClick = onDeleteConfirmPenghuni) {
+                Text(text = "Yes")
+            }
+        }
+    )
+}
