@@ -1,4 +1,4 @@
-package com.example.tugasakhir_pam.ui.Penghuni.Add
+package com.example.tugasakhir_pam.ui.Penghuni.AddPenghuni
 
 import androidx.compose.runtime.getValue
 import androidx.compose.runtime.mutableStateOf

@@ -1,4 +1,4 @@
-package com.example.tugasakhir_pam.ui.Penghuni.Detail
+package com.example.tugasakhir_pam.ui.Penghuni.DetailPenghuni
 
 import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Column
