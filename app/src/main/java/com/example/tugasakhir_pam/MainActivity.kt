@@ -10,6 +10,7 @@ import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.tooling.preview.Preview
+import com.example.tugasakhir_pam.ui.Halaman.HalamanUtama
 import com.example.tugasakhir_pam.ui.theme.TugasAkhir_PAMTheme
 
 class MainActivity : ComponentActivity() {
