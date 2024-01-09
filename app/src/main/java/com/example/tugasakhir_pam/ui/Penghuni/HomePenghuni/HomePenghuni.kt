@@ -10,11 +10,13 @@ import androidx.compose.material3.FloatingActionButton
 import androidx.compose.material3.Icon
 import androidx.compose.material3.MaterialTheme
 import androidx.compose.material3.Scaffold
+import androidx.compose.material3.Text
 import androidx.compose.material3.TopAppBarDefaults
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.input.nestedscroll.nestedScroll
+import androidx.compose.ui.text.style.TextAlign
 import androidx.compose.ui.unit.dp
 import com.example.tugasakhir_pam.PenghuniTopAppBar
 import com.example.tugasakhir_pam.PenyediaViewModel
@@ -78,7 +80,20 @@ fun BodyHomePenghuni(
         horizontalAlignment = Alignment.CenterHorizontally,
         modifier = modifier
     ) {
-
+        if (itemPenghuni.isEmpty()) {
+            Text(
+                text = "Tidak Ada Data Penghuni",
+                textAlign = TextAlign.Center,
+                style = MaterialTheme.typography.titleLarge
+            )
+        } else {
+            ListPenghuni(
+                itemPenghuni = itemPenghuni,
+                modifier = Modifier
+                    .padding(horizontal = 8.dp),
+                onItemClick = { onPenghuniClick(it.id) }
+            )
+        }
     }
 }
 
