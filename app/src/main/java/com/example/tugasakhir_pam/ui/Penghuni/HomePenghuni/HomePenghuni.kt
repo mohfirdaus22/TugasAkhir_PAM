@@ -1,5 +1,6 @@
 package com.example.tugasakhir_pam.ui.Penghuni.HomePenghuni
 
+import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.foundation.layout.padding
 import androidx.compose.material.icons.Icons
@@ -11,11 +12,13 @@ import androidx.compose.material3.MaterialTheme
 import androidx.compose.material3.Scaffold
 import androidx.compose.material3.TopAppBarDefaults
 import androidx.compose.runtime.Composable
+import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.input.nestedscroll.nestedScroll
 import androidx.compose.ui.unit.dp
 import com.example.tugasakhir_pam.PenghuniTopAppBar
 import com.example.tugasakhir_pam.PenyediaViewModel
+import com.example.tugasakhir_pam.model.Penghuni
 import com.example.tugasakhir_pam.navigation.DestinasiNavigasi
 
 object DestinasiHomePenghuni : DestinasiNavigasi {
@@ -56,11 +59,26 @@ fun PenghuniScreen(
     ) { innerPadding ->
         val uiStatePenghuni by viewModel.homeUIStatePenghuni.collectAsState()
         BodyHomePenghuni(
-            itemAnggota = uiStatePenghuni.listPenghuni,
+            itemPenghuni = uiStatePenghuni.listPenghuni,
             modifier = Modifier
                 .padding(innerPadding)
                 .fillMaxSize(),
-            onAnggotaClick = onDetailClickPenghuni
+            onPenghuniClick = onDetailClickPenghuni
         )
     }
 }
+
+@Composable
+fun BodyHomePenghuni(
+    itemPenghuni: List<Penghuni>,
+    modifier: Modifier = Modifier,
+    onPenghuniClick: (String) -> Unit = {}
+) {
+    Column(
+        horizontalAlignment = Alignment.CenterHorizontally,
+        modifier = modifier
+    ) {
+
+    }
+}
+
