@@ -115,7 +115,8 @@ fun ListPenghuni(
     LazyColumn(
         modifier = modifier
     ) {
-        
+
+
     }
 }
 
