@@ -18,11 +18,17 @@ import androidx.compose.ui.res.dimensionResource
 import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.unit.dp
 import com.example.tugasakhir_pam.R
+import com.example.tugasakhir_pam.navigation.DestinasiNavigasi
 
+object DestinasiUtama : DestinasiNavigasi {
+    override val route = "Item"
+    override val titleRes = "Pilih"
+}
 
 @Composable
 fun HalamanUtama(
-    
+    onKamarClick: () -> Unit,
+    onPenghuniClick: () -> Unit,
 ) {
     Row (
         modifier = Modifier

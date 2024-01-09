@@ -20,10 +20,15 @@ import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.unit.dp
 import com.example.tugasakhir_pam.R
+import com.example.tugasakhir_pam.navigation.DestinasiNavigasi
 
+object AwalDestination : DestinasiNavigasi {
+    override val route = "Start"
+    override val titleRes = "Start"
+}
 @Composable
 fun HalamanHome(
-    onNextButtonClicked: () -> Unit
+    onNextButtonClicked: () -> Unit,
 ){
     val image = painterResource(id = R.drawable.logoasramaku)
     Column(
