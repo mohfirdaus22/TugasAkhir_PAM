@@ -11,6 +11,7 @@ import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.lazy.LazyColumn
 import androidx.compose.material.icons.Icons
 import androidx.compose.material.icons.filled.Add
+import androidx.compose.material.icons.filled.Home
 import androidx.compose.material.icons.filled.Phone
 import androidx.compose.material3.Card
 import androidx.compose.material3.CardDefaults
@@ -146,6 +147,23 @@ fun DataPenghuni(
                 )
                 Text(
                     text = penghuni.nohp,
+                    style = MaterialTheme.typography.titleMedium
+                )
+            }
+            Row(
+                modifier = Modifier.fillMaxWidth()
+            ) {
+                Icon(
+                    imageVector = Icons.Default.Home,
+                    contentDescription = null,
+                )
+                Text(
+                    text = penghuni.alamat,
+                    style = MaterialTheme.typography.titleLarge,
+                )
+                Spacer(Modifier.weight(1f))
+                Text(
+                    text = penghuni.email,
                     style = MaterialTheme.typography.titleMedium
                 )
             }
