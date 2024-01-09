@@ -30,7 +30,7 @@ fun AsramaApp() {
                 .fillMaxSize()
                 .padding(it)
         ) {
-            PengelolaHalaman()
+          PengelolaHalaman()
         }
     }
 }

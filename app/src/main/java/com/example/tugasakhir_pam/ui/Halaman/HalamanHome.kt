@@ -27,7 +27,7 @@ object DestinasiUtama : DestinasiNavigasi {
 
 @Composable
 fun HalamanUtama(
-    onKamarClick: () -> Unit,
+
     onPenghuniClick: () -> Unit,
 ) {
     Row (
@@ -53,7 +53,7 @@ fun HalamanUtama(
             horizontalAlignment = Alignment.CenterHorizontally
         ) {
             Button(
-                onClick = { /*TODO*/ },
+                onClick = onPenghuniClick,
                 modifier = Modifier
                     .fillMaxWidth()
                     .height(56.dp)

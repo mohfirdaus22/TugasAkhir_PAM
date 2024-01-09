@@ -5,6 +5,7 @@ import androidx.compose.ui.Modifier
 import androidx.navigation.NavHostController
 import androidx.navigation.compose.NavHost
 import androidx.navigation.compose.composable
+import androidx.navigation.compose.rememberNavController
 import com.example.tugasakhir_pam.ui.Halaman.AwalDestination
 import com.example.tugasakhir_pam.ui.Halaman.DestinasiUtama
 import com.example.tugasakhir_pam.ui.Halaman.HalamanHome
@@ -14,7 +15,7 @@ import com.example.tugasakhir_pam.ui.Penghuni.HomePenghuni.DestinasiHomePenghuni
 import com.example.tugasakhir_pam.ui.Penghuni.HomePenghuni.PenghuniScreen
 
 @Composable
-fun PengelolaHalaman(navController: NavHostController ) {
+fun PengelolaHalaman(navController: NavHostController = rememberNavController()) {
     NavHost(
         navController = navController,
         startDestination = AwalDestination.route,
@@ -29,8 +30,15 @@ fun PengelolaHalaman(navController: NavHostController ) {
         }
         composable(DestinasiUtama.route) {
             HalamanUtama(
-                onKamarClick = { navController.navigate(DestinasiHomePenghuni.route) },
                 onPenghuniClick = { navController.navigate(DestinasiHomePenghuni.route) }
+            )
+        }
+        composable(DestinasiHomePenghuni.route){
+            PenghuniScreen(
+                navigateToItemEntryPenghuni = {
+                    navController.navigate(DestinasiEntryPenghuni.route)
+                },
+                onDetailClickPenghuni = {item}
             )
         }
     }

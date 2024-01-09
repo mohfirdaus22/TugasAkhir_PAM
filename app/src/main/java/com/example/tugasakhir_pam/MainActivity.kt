@@ -23,7 +23,7 @@ class MainActivity : ComponentActivity() {
                     modifier = Modifier.fillMaxSize(),
                     color = MaterialTheme.colorScheme.background
                 ) {
-                   HalamanUtama()
+                   AsramaApp()
                 }
             }
         }
@@ -38,10 +38,3 @@ fun Greeting(name: String, modifier: Modifier = Modifier) {
     )
 }
 
-@Preview(showBackground = true)
-@Composable
-fun GreetingPreview() {
-    TugasAkhir_PAMTheme {
-        HalamanUtama()
-    }
-}
