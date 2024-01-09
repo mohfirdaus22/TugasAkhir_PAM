@@ -1,10 +1,17 @@
 package com.example.tugasakhir_pam.ui.Penghuni.HomePenghuni
 
+import androidx.compose.foundation.clickable
+import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Column
+import androidx.compose.foundation.layout.Spacer
 import androidx.compose.foundation.layout.fillMaxSize
+import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.padding
+import androidx.compose.foundation.lazy.LazyColumn
 import androidx.compose.material.icons.Icons
 import androidx.compose.material.icons.filled.Add
+import androidx.compose.material3.Card
+import androidx.compose.material3.CardDefaults
 import androidx.compose.material3.ExperimentalMaterial3Api
 import androidx.compose.material3.FloatingActionButton
 import androidx.compose.material3.Icon
@@ -96,4 +103,34 @@ fun BodyHomePenghuni(
         }
     }
 }
+@Composable
+fun ListPenghuni(
+    itemPenghuni: List<Penghuni>,
+    modifier: Modifier = Modifier,
+    onItemClick: (Penghuni) -> Unit
+) {
+    LazyColumn(
+        modifier = modifier
+    ) {
 
+    }
+}
+
+
+@Composable
+fun DataPenghuni(
+    penghuni: Penghuni,
+    modifier: Modifier = Modifier
+) {
+    Card(
+        modifier = modifier,
+        elevation = CardDefaults.cardElevation(defaultElevation = 2.dp)
+    ) {
+        Column(
+            modifier = Modifier.padding(12.dp),
+            verticalArrangement = Arrangement.spacedBy(8.dp)
+        ) {
+
+        }
+    }
+}
