@@ -3,6 +3,7 @@ package com.example.tugasakhir_pam.navigation
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
 import androidx.navigation.NavHostController
+import androidx.navigation.NavType
 import androidx.navigation.compose.NavHost
 import androidx.navigation.compose.composable
 import androidx.navigation.compose.rememberNavController
@@ -11,8 +12,11 @@ import com.example.tugasakhir_pam.ui.Halaman.AwalDestination
 import com.example.tugasakhir_pam.ui.Halaman.DestinasiUtama
 import com.example.tugasakhir_pam.ui.Halaman.HalamanHome
 import com.example.tugasakhir_pam.ui.Halaman.HalamanUtama
+import com.example.tugasakhir_pam.ui.Penghuni.AddPenghuni.AddPenghuni
 import com.example.tugasakhir_pam.ui.Penghuni.AddPenghuni.DestinasiEntryPenghuni
 import com.example.tugasakhir_pam.ui.Penghuni.DetailPenghuni.DetailDestinationPenghuni
+import com.example.tugasakhir_pam.ui.Penghuni.DetailPenghuni.DetailDestinationPenghuni.penghuniId
+import com.example.tugasakhir_pam.ui.Penghuni.DetailPenghuni.DetailScreenPenghuni
 import com.example.tugasakhir_pam.ui.Penghuni.HomePenghuni.DestinasiHomePenghuni
 import com.example.tugasakhir_pam.ui.Penghuni.HomePenghuni.PenghuniScreen
 
@@ -47,7 +51,23 @@ fun PengelolaHalaman(navController: NavHostController = rememberNavController())
             )
         }
 
+        composable(
+            route = DetailDestinationPenghuni.routeWithArgs,
+            arguments = listOf(navArgument(DetailDestinationPenghuni.penghuniId) {
+                type = NavType.StringType
+            })
+        ) { backStackEntry ->
+            val anggotaId = backStackEntry.arguments?.getString(DetailDestinationPenghuni.penghuniId)
+            penghuniId?.let {
 
+            }
+        }
+
+        composable(DestinasiEntryPenghuni.route) {
+            AddPenghuni(
+                navigateBack = { navController.popBackStack() }
+            )
+        }
     }
 
 
