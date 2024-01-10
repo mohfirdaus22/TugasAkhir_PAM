@@ -14,8 +14,8 @@ import kotlinx.coroutines.tasks.await
 
 interface KamarRepository {
     fun getAll(): Flow<List<Kamar>>
-    suspend fun save(asrama: Kamar): String
-    suspend fun update(asrama: Kamar)
+    suspend fun save(kamar: Kamar): String
+    suspend fun update(kamar: Kamar)
     suspend fun delete(kamarId: String)
     fun getKamarById(kamarId: String): Flow<Kamar>
 }
@@ -30,12 +30,13 @@ class KamarRepositoryImpl(private val firestore: FirebaseFirestore) : KamarRepos
     }.flowOn(Dispatchers.IO)
 
 
-    override suspend fun save(asrama: Kamar): String {
+    override suspend fun save(kamar: Kamar): String {
         return try {
-            val documentReference = firestore.collection("Kamar").add(asrama).await()
+            val documentReference = firestore.collection("Kamar")
+                .add(kamar).await()
             // Update the Kamar with the Firestore-generated DocumentReference
             firestore.collection("Kamar").document(documentReference.id)
-                .set(asrama.copy(nokamar = documentReference.id))
+                .set(kamar.copy(nokamar = documentReference.id))
             "Berhasil + ${documentReference.id}"
         } catch (e: Exception) {
             Log.w(ContentValues.TAG, "Error adding document", e)
@@ -43,8 +44,8 @@ class KamarRepositoryImpl(private val firestore: FirebaseFirestore) : KamarRepos
         }
     }
 
-    override suspend fun update(asrama: Kamar) {
-        firestore.collection("Kamar").document(asrama.nokamar).set(asrama).await()
+    override suspend fun update(kamar: Kamar) {
+        firestore.collection("Kamar").document(kamar.nokamar).set(kamar).await()
     }
 
     override suspend fun delete(kamarId: String) {
