@@ -77,7 +77,7 @@ fun HalamanUtama(
                 )
             }
             Button(
-                onClick = onDetailClick,
+                onClick = {},
                 modifier = Modifier
                     .fillMaxWidth()
                     .height(56.dp)

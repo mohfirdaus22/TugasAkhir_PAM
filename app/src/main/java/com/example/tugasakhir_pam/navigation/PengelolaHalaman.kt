@@ -24,6 +24,7 @@ import com.example.tugasakhir_pam.ui.Penghuni.AddPenghuni.DestinasiEntryPenghuni
 import com.example.tugasakhir_pam.ui.Penghuni.DetailPenghuni.DetailDestinationPenghuni
 import com.example.tugasakhir_pam.ui.Penghuni.DetailPenghuni.DetailDestinationPenghuni.penghuniId
 import com.example.tugasakhir_pam.ui.Penghuni.DetailPenghuni.DetailScreenPenghuni
+import com.example.tugasakhir_pam.ui.Penghuni.EditPenghuni.EditDestinationPenghuni
 import com.example.tugasakhir_pam.ui.Penghuni.HomePenghuni.DestinasiHomePenghuni
 import com.example.tugasakhir_pam.ui.Penghuni.HomePenghuni.PenghuniScreen
 
@@ -44,7 +45,8 @@ fun PengelolaHalaman(navController: NavHostController = rememberNavController())
         composable(DestinasiUtama.route) {
             HalamanUtama(
                 onPenghuniClick = { navController.navigate(DestinasiHomePenghuni.route) },
-                onKamarClick = {navController.navigate(DestinasiHomeKamar.route)}
+                onKamarClick = {navController.navigate(DestinasiHomeKamar.route)},
+                onDetailClick = {}
             )
         }
         composable(DestinasiHomePenghuni.route){
@@ -65,10 +67,13 @@ fun PengelolaHalaman(navController: NavHostController = rememberNavController())
                 type = NavType.StringType
             })
         ) { backStackEntry ->
-            val anggotaId = backStackEntry.arguments?.getString(DetailDestinationPenghuni.penghuniId)
+            val penghuniId = backStackEntry.arguments?.getString(DetailDestinationPenghuni.penghuniId)
             penghuniId?.let {
                 DetailScreenPenghuni(
-                    navigateBack = { /*TODO*/ })
+                    navigateToEditItemPenghuni = { navController.navigate("${EditDestinationPenghuni.route}/$penghuniId")
+                        println("penghuniId: $penghuniId")
+                    },
+                    navigateBack = {navController.popBackStack() })
             }
         }
 
