@@ -65,7 +65,7 @@ fun HalamanUtama(
                 )
             }
             Button(
-                onClick = { onKamarClick },
+                onClick = onKamarClick,
                 modifier = Modifier
                     .fillMaxWidth()
                     .height(56.dp)
