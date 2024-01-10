@@ -7,6 +7,7 @@ import androidx.lifecycle.viewmodel.initializer
 import androidx.lifecycle.viewmodel.viewModelFactory
 import com.example.tugasakhir_pam.ui.Kamar.AddKamar.AddKamarViewModel
 import com.example.tugasakhir_pam.ui.Kamar.DetailKamar.DetailKamarViewModel
+import com.example.tugasakhir_pam.ui.Kamar.EditKAmar.EditKamarViewModel
 import com.example.tugasakhir_pam.ui.Kamar.HomeKamar.HomeKamarViewModel
 import com.example.tugasakhir_pam.ui.Penghuni.AddPenghuni.AddPenghuniViewModel
 import com.example.tugasakhir_pam.ui.Penghuni.DetailPenghuni.DetailPenghuniViewModel
@@ -40,6 +41,12 @@ object PenyediaViewModel {
         }
         initializer {
             DetailKamarViewModel(
+                createSavedStateHandle(),
+                aplikasiAsrama().container.kamarRepository
+            )
+        }
+        initializer {
+            EditKamarViewModel(
                 createSavedStateHandle(),
                 aplikasiAsrama().container.kamarRepository
             )
