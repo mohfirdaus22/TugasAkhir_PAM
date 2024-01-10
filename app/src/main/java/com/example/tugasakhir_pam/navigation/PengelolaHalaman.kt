@@ -12,6 +12,7 @@ import com.example.tugasakhir_pam.ui.Halaman.AwalDestination
 import com.example.tugasakhir_pam.ui.Halaman.DestinasiUtama
 import com.example.tugasakhir_pam.ui.Halaman.HalamanHome
 import com.example.tugasakhir_pam.ui.Halaman.HalamanUtama
+import com.example.tugasakhir_pam.ui.Kamar.AddKamar.AddKamar
 import com.example.tugasakhir_pam.ui.Kamar.AddKamar.DestinasiEntryKamar
 import com.example.tugasakhir_pam.ui.Kamar.DetailKamar.DetailDestinationKamar
 import com.example.tugasakhir_pam.ui.Kamar.DetailKamar.DetailScreenKamar
@@ -25,6 +26,7 @@ import com.example.tugasakhir_pam.ui.Penghuni.DetailPenghuni.DetailDestinationPe
 import com.example.tugasakhir_pam.ui.Penghuni.DetailPenghuni.DetailDestinationPenghuni.penghuniId
 import com.example.tugasakhir_pam.ui.Penghuni.DetailPenghuni.DetailScreenPenghuni
 import com.example.tugasakhir_pam.ui.Penghuni.EditPenghuni.EditDestinationPenghuni
+import com.example.tugasakhir_pam.ui.Penghuni.EditPenghuni.EditScreenPenghuni
 import com.example.tugasakhir_pam.ui.Penghuni.HomePenghuni.DestinasiHomePenghuni
 import com.example.tugasakhir_pam.ui.Penghuni.HomePenghuni.PenghuniScreen
 
@@ -82,7 +84,19 @@ fun PengelolaHalaman(navController: NavHostController = rememberNavController())
                 navigateBack = { navController.popBackStack() }
             )
         }
-        
+        composable(
+            route = EditDestinationPenghuni.routeWithArgs,
+            arguments = listOf(navArgument(EditDestinationPenghuni.penghuniId) {
+                type = NavType.StringType
+            })
+        ) { backStackEntry ->
+            val penghuniId = backStackEntry.arguments?.getString(EditDestinationPenghuni.penghuniId)
+            penghuniId?.let {
+                EditScreenPenghuni(
+                    navigateBackPenghuni = { navController.popBackStack() },
+                    onNavigateUpPenghuni = { navController.navigateUp() })
+            }
+        }
         composable(
             route = EditDestinationKamar.routeWithArgs,
             arguments = listOf(navArgument(EditDestinationKamar.kamarId){
@@ -123,6 +137,8 @@ fun PengelolaHalaman(navController: NavHostController = rememberNavController())
                     navigateBack = { navController.popBackStack() })
             }
         }
-
+        composable(DestinasiEntryKamar.route){
+            AddKamar(navigateBack = { navController.popBackStack() })
+        }
     }
 }
