@@ -12,6 +12,9 @@ import com.example.tugasakhir_pam.ui.Halaman.AwalDestination
 import com.example.tugasakhir_pam.ui.Halaman.DestinasiUtama
 import com.example.tugasakhir_pam.ui.Halaman.HalamanHome
 import com.example.tugasakhir_pam.ui.Halaman.HalamanUtama
+import com.example.tugasakhir_pam.ui.Kamar.AddKamar.DestinasiEntryKamar
+import com.example.tugasakhir_pam.ui.Kamar.DetailKamar.DetailDestinationKamar
+import com.example.tugasakhir_pam.ui.Kamar.DetailKamar.DetailScreenKamar
 import com.example.tugasakhir_pam.ui.Kamar.EditKAmar.EditDestinationKamar
 import com.example.tugasakhir_pam.ui.Kamar.EditKAmar.EditScreenKamar
 import com.example.tugasakhir_pam.ui.Kamar.HomeKamar.DestinasiHomeKamar
@@ -90,9 +93,31 @@ fun PengelolaHalaman(navController: NavHostController = rememberNavController())
         }
 
         composable(DestinasiHomeKamar.route){
-            KamarScreen(navigateToItemEntryKamar = { /*TODO*/ })
+            KamarScreen(
+                navigateToItemEntryKamar = {
+                    navController.navigate(DestinasiEntryKamar.route)
+                },
+                onDetailClickKamar = { itemIdKamar ->
+                    navController.navigate("${DetailDestinationKamar.route}/$itemIdKamar")
+                    println("itemIdKamar: $itemIdKamar")
+                }
+            )
         }
+        composable(
+            route = DetailDestinationKamar.routeWithArgs,
+            arguments = listOf(navArgument(EditDestinationKamar.kamarId){
+                type = NavType.StringType
+            })
+        ){backStackEntry ->
+            val kamarId = backStackEntry.arguments?.getString(DetailDestinationKamar.kamarId)
+            kamarId?.let {
+                DetailScreenKamar(navigateToEditItemKamar = {
+                    navController.navigate("${EditDestinationKamar.route}/$kamarId")
+                    println("kamarId: $kamarId")
+                },
+                    navigateBack = { navController.popBackStack() })
+            }
+        }
+
     }
-
-
 }
