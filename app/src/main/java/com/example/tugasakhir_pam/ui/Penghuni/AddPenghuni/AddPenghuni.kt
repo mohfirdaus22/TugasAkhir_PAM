@@ -29,8 +29,8 @@ import com.example.tugasakhir_pam.navigation.DestinasiNavigasi
 import kotlinx.coroutines.launch
 
 object DestinasiEntryPenghuni : DestinasiNavigasi{
-    override val route = "item_entry"
-    override val titleRes = "Entry_Penghuni"
+    override val route = "item entry penghuni"
+    override val titleRes = "Entry Penghuni"
 }
 
 
