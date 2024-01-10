@@ -4,7 +4,6 @@ import androidx.lifecycle.SavedStateHandle
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
 import com.example.tugasakhir_pam.DetailUIStateKamar
-import com.example.tugasakhir_pam.DetailUIStatePenghuni
 import com.example.tugasakhir_pam.data.KamarRepository
 import com.example.tugasakhir_pam.toDetailKamar
 import kotlinx.coroutines.flow.SharingStarted
