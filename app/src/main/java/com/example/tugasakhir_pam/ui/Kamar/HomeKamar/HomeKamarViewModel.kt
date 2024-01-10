@@ -2,10 +2,8 @@ package com.example.tugasakhir_pam.ui.Kamar.HomeKamar
 
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
-import com.example.tugasakhir_pam.HomeUIStateKamar
-import com.example.tugasakhir_pam.HomeUIStatePenghuni
+import com.example.tugasakhir_pam.ui.HomeUIStateKamar
 import com.example.tugasakhir_pam.data.KamarRepository
-import com.example.tugasakhir_pam.data.PenghuniRepository
 import com.example.tugasakhir_pam.model.Penghuni
 import kotlinx.coroutines.flow.Flow
 import kotlinx.coroutines.flow.SharingStarted

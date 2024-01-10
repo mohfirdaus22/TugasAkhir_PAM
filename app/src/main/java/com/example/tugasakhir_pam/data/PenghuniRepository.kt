@@ -13,8 +13,8 @@ import kotlinx.coroutines.tasks.await
 
 interface PenghuniRepository {
     fun getAll(): Flow<List<Penghuni>>
-    suspend fun save(asrama: Penghuni): String
-    suspend fun update(asrama: Penghuni )
+    suspend fun save(penghuni: Penghuni): String
+    suspend fun update(penghuni: Penghuni )
     suspend fun delete(penghuniId: String)
     fun getPenghuniById(penghuniId: String): Flow<Penghuni>
 }

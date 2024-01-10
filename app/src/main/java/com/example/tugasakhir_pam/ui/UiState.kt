@@ -1,4 +1,4 @@
-package com.example.tugasakhir_pam
+package com.example.tugasakhir_pam.ui
 
 import com.example.tugasakhir_pam.model.Kamar
 import com.example.tugasakhir_pam.model.Penghuni
@@ -66,11 +66,11 @@ data class AddUIStateKamar(
     val addEventKamar: AddEventKamar = AddEventKamar()
 )
 
-fun Penghuni.toUIStatePenghuni():AddUIStatePenghuni = AddUIStatePenghuni(
+fun Penghuni.toUIStatePenghuni(): AddUIStatePenghuni = AddUIStatePenghuni(
     addEventPenghuni = this.toDetailPenghuni()
 )
 
-fun Kamar.toUIStateKamar():AddUIStateKamar = AddUIStateKamar(
+fun Kamar.toUIStateKamar(): AddUIStateKamar = AddUIStateKamar(
     addEventKamar = this.toDetailKamar()
 )
 

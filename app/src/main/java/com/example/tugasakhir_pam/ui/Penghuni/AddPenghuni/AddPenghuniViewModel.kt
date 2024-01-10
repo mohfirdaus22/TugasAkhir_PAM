@@ -4,10 +4,10 @@ import androidx.compose.runtime.getValue
 import androidx.compose.runtime.mutableStateOf
 import androidx.compose.runtime.setValue
 import androidx.lifecycle.ViewModel
-import com.example.tugasakhir_pam.AddEventPenghuni
-import com.example.tugasakhir_pam.AddUIStatePenghuni
+import com.example.tugasakhir_pam.ui.AddEventPenghuni
+import com.example.tugasakhir_pam.ui.AddUIStatePenghuni
 import com.example.tugasakhir_pam.data.PenghuniRepository
-import com.example.tugasakhir_pam.toPenghuni
+import com.example.tugasakhir_pam.ui.toPenghuni
 
 class AddPenghuniViewModel (private val penghuniRepository: PenghuniRepository): ViewModel(){
     var addUIStatePenghuni by mutableStateOf(AddUIStatePenghuni())

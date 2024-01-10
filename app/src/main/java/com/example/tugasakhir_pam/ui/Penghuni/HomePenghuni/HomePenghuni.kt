@@ -32,8 +32,8 @@ import androidx.compose.ui.input.nestedscroll.nestedScroll
 import androidx.compose.ui.text.style.TextAlign
 import androidx.compose.ui.unit.dp
 import androidx.lifecycle.viewmodel.compose.viewModel
-import com.example.tugasakhir_pam.PenghuniTopAppBar
-import com.example.tugasakhir_pam.PenyediaViewModel
+import com.example.tugasakhir_pam.ui.PenghuniTopAppBar
+import com.example.tugasakhir_pam.ui.PenyediaViewModel
 import com.example.tugasakhir_pam.model.Penghuni
 import com.example.tugasakhir_pam.navigation.DestinasiNavigasi
 

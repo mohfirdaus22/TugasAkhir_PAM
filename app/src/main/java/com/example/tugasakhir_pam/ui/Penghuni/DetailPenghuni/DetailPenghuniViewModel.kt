@@ -3,9 +3,9 @@ package com.example.tugasakhir_pam.ui.Penghuni.DetailPenghuni
 import androidx.lifecycle.SavedStateHandle
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
-import com.example.tugasakhir_pam.DetailUIStatePenghuni
+import com.example.tugasakhir_pam.ui.DetailUIStatePenghuni
 import com.example.tugasakhir_pam.data.PenghuniRepository
-import com.example.tugasakhir_pam.toDetailPenghuni
+import com.example.tugasakhir_pam.ui.toDetailPenghuni
 import kotlinx.coroutines.flow.SharingStarted
 import kotlinx.coroutines.flow.StateFlow
 import kotlinx.coroutines.flow.filterNotNull

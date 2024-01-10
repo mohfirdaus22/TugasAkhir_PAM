@@ -12,7 +12,6 @@ import androidx.compose.material3.AlertDialog
 import androidx.compose.material3.Card
 import androidx.compose.material3.CardDefaults
 import androidx.compose.material3.ExperimentalMaterial3Api
-import androidx.compose.material3.FloatingActionButton
 import androidx.compose.material3.MaterialTheme
 import androidx.compose.material3.OutlinedButton
 import androidx.compose.material3.Scaffold
@@ -29,12 +28,12 @@ import androidx.compose.ui.Modifier
 import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.unit.dp
 import androidx.lifecycle.viewmodel.compose.viewModel
-import com.example.tugasakhir_pam.DetailUIStatePenghuni
-import com.example.tugasakhir_pam.PenghuniTopAppBar
-import com.example.tugasakhir_pam.PenyediaViewModel
+import com.example.tugasakhir_pam.ui.DetailUIStatePenghuni
+import com.example.tugasakhir_pam.ui.PenghuniTopAppBar
+import com.example.tugasakhir_pam.ui.PenyediaViewModel
 import com.example.tugasakhir_pam.model.Penghuni
 import com.example.tugasakhir_pam.navigation.DestinasiNavigasi
-import com.example.tugasakhir_pam.toPenghuni
+import com.example.tugasakhir_pam.ui.toPenghuni
 import kotlinx.coroutines.launch
 
 object DetailDestinationPenghuni: DestinasiNavigasi {

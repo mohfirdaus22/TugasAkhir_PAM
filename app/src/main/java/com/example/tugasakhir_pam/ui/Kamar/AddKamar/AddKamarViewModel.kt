@@ -4,10 +4,10 @@ import androidx.compose.runtime.getValue
 import androidx.compose.runtime.mutableStateOf
 import androidx.compose.runtime.setValue
 import androidx.lifecycle.ViewModel
-import com.example.tugasakhir_pam.AddEventKamar
-import com.example.tugasakhir_pam.AddUIStateKamar
+import com.example.tugasakhir_pam.ui.AddEventKamar
+import com.example.tugasakhir_pam.ui.AddUIStateKamar
 import com.example.tugasakhir_pam.data.KamarRepository
-import com.example.tugasakhir_pam.toKamar
+import com.example.tugasakhir_pam.ui.toKamar
 
 class AddKamarViewModel (private val kamarRepository: KamarRepository): ViewModel(){
     var addUIStateKamar by mutableStateOf(AddUIStateKamar())

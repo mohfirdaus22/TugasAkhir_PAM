@@ -6,11 +6,11 @@ import androidx.compose.runtime.setValue
 import androidx.lifecycle.SavedStateHandle
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
-import com.example.tugasakhir_pam.AddEventKamar
-import com.example.tugasakhir_pam.AddUIStateKamar
+import com.example.tugasakhir_pam.ui.AddEventKamar
+import com.example.tugasakhir_pam.ui.AddUIStateKamar
 import com.example.tugasakhir_pam.data.KamarRepository
-import com.example.tugasakhir_pam.toKamar
-import com.example.tugasakhir_pam.toUIStateKamar
+import com.example.tugasakhir_pam.ui.toKamar
+import com.example.tugasakhir_pam.ui.toUIStateKamar
 import kotlinx.coroutines.flow.filterNotNull
 import kotlinx.coroutines.flow.first
 import kotlinx.coroutines.launch

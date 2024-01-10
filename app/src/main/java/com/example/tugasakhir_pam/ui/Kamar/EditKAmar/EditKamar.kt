@@ -10,7 +10,7 @@ import androidx.compose.runtime.Composable
 import androidx.compose.runtime.rememberCoroutineScope
 import androidx.compose.ui.Modifier
 import androidx.lifecycle.viewmodel.compose.viewModel
-import com.example.tugasakhir_pam.PenyediaViewModel
+import com.example.tugasakhir_pam.ui.PenyediaViewModel
 import com.example.tugasakhir_pam.navigation.DestinasiNavigasi
 import com.example.tugasakhir_pam.ui.Kamar.AddKamar.EntryBodyKamar
 import kotlinx.coroutines.launch

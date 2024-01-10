@@ -32,8 +32,8 @@ import androidx.compose.ui.input.nestedscroll.nestedScroll
 import androidx.compose.ui.text.style.TextAlign
 import androidx.compose.ui.unit.dp
 import androidx.lifecycle.viewmodel.compose.viewModel
-import com.example.tugasakhir_pam.KamarTopAppBar
-import com.example.tugasakhir_pam.PenyediaViewModel
+import com.example.tugasakhir_pam.ui.KamarTopAppBar
+import com.example.tugasakhir_pam.ui.PenyediaViewModel
 import com.example.tugasakhir_pam.model.Kamar
 import com.example.tugasakhir_pam.navigation.DestinasiNavigasi
 

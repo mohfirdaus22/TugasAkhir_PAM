@@ -1,4 +1,4 @@
-package com.example.tugasakhir_pam
+package com.example.tugasakhir_pam.ui
 
 import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.foundation.layout.padding

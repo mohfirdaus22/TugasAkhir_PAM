@@ -29,12 +29,12 @@ import androidx.compose.ui.Modifier
 import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.unit.dp
 import androidx.lifecycle.viewmodel.compose.viewModel
-import com.example.tugasakhir_pam.DetailUIStateKamar
-import com.example.tugasakhir_pam.KamarTopAppBar
-import com.example.tugasakhir_pam.PenyediaViewModel
+import com.example.tugasakhir_pam.ui.DetailUIStateKamar
+import com.example.tugasakhir_pam.ui.KamarTopAppBar
+import com.example.tugasakhir_pam.ui.PenyediaViewModel
 import com.example.tugasakhir_pam.model.Kamar
 import com.example.tugasakhir_pam.navigation.DestinasiNavigasi
-import com.example.tugasakhir_pam.toKamar
+import com.example.tugasakhir_pam.ui.toKamar
 import kotlinx.coroutines.launch
 
 object DetailDestinationKamar: DestinasiNavigasi {

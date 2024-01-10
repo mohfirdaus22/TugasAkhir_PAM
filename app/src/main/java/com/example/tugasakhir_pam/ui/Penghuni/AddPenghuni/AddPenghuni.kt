@@ -21,10 +21,10 @@ import androidx.compose.ui.input.nestedscroll.nestedScroll
 import androidx.compose.ui.text.input.KeyboardType
 import androidx.compose.ui.unit.dp
 import androidx.lifecycle.viewmodel.compose.viewModel
-import com.example.tugasakhir_pam.AddEventPenghuni
-import com.example.tugasakhir_pam.AddUIStatePenghuni
-import com.example.tugasakhir_pam.PenghuniTopAppBar
-import com.example.tugasakhir_pam.PenyediaViewModel
+import com.example.tugasakhir_pam.ui.AddEventPenghuni
+import com.example.tugasakhir_pam.ui.AddUIStatePenghuni
+import com.example.tugasakhir_pam.ui.PenghuniTopAppBar
+import com.example.tugasakhir_pam.ui.PenyediaViewModel
 import com.example.tugasakhir_pam.navigation.DestinasiNavigasi
 import kotlinx.coroutines.launch
 

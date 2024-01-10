@@ -3,9 +3,9 @@ package com.example.tugasakhir_pam.ui.Kamar.DetailKamar
 import androidx.lifecycle.SavedStateHandle
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
-import com.example.tugasakhir_pam.DetailUIStateKamar
+import com.example.tugasakhir_pam.ui.DetailUIStateKamar
 import com.example.tugasakhir_pam.data.KamarRepository
-import com.example.tugasakhir_pam.toDetailKamar
+import com.example.tugasakhir_pam.ui.toDetailKamar
 import kotlinx.coroutines.flow.SharingStarted
 import kotlinx.coroutines.flow.StateFlow
 import kotlinx.coroutines.flow.filterNotNull

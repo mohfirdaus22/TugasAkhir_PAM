@@ -1,10 +1,11 @@
-package com.example.tugasakhir_pam
+package com.example.tugasakhir_pam.ui
 
 import androidx.lifecycle.ViewModelProvider
 import androidx.lifecycle.createSavedStateHandle
 import androidx.lifecycle.viewmodel.CreationExtras
 import androidx.lifecycle.viewmodel.initializer
 import androidx.lifecycle.viewmodel.viewModelFactory
+import com.example.tugasakhir_pam.AsramaApplication
 import com.example.tugasakhir_pam.ui.Kamar.AddKamar.AddKamarViewModel
 import com.example.tugasakhir_pam.ui.Kamar.DetailKamar.DetailKamarViewModel
 import com.example.tugasakhir_pam.ui.Kamar.EditKAmar.EditKamarViewModel
