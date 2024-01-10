@@ -12,6 +12,8 @@ import com.example.tugasakhir_pam.ui.Halaman.AwalDestination
 import com.example.tugasakhir_pam.ui.Halaman.DestinasiUtama
 import com.example.tugasakhir_pam.ui.Halaman.HalamanHome
 import com.example.tugasakhir_pam.ui.Halaman.HalamanUtama
+import com.example.tugasakhir_pam.ui.Kamar.EditKAmar.EditDestinationKamar
+import com.example.tugasakhir_pam.ui.Kamar.EditKAmar.EditScreenKamar
 import com.example.tugasakhir_pam.ui.Kamar.HomeKamar.DestinasiHomeKamar
 import com.example.tugasakhir_pam.ui.Kamar.HomeKamar.KamarScreen
 import com.example.tugasakhir_pam.ui.Penghuni.AddPenghuni.AddPenghuni
@@ -71,6 +73,20 @@ fun PengelolaHalaman(navController: NavHostController = rememberNavController())
             AddPenghuni(
                 navigateBack = { navController.popBackStack() }
             )
+        }
+        
+        composable(
+            route = EditDestinationKamar.routeWithArgs,
+            arguments = listOf(navArgument(EditDestinationKamar.kamarId){
+                type = NavType.StringType
+            })
+        ){backStackEntry ->  
+            val kamarId = backStackEntry.arguments?.getString(EditDestinationKamar.kamarId)
+            kamarId?.let { 
+                EditScreenKamar(
+                    navigateBackKamar = { navController.popBackStack() }, 
+                    onNavigateUpKamar = { navController.navigateUp() })
+            }
         }
 
         composable(DestinasiHomeKamar.route){
