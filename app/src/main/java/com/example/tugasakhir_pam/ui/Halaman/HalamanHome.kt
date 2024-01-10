@@ -21,7 +21,7 @@ import com.example.tugasakhir_pam.R
 import com.example.tugasakhir_pam.navigation.DestinasiNavigasi
 
 object DestinasiUtama : DestinasiNavigasi {
-    override val route = "Item"
+    override val route = "Utama"
     override val titleRes = "Pilih"
 }
 
@@ -30,6 +30,7 @@ fun HalamanUtama(
 
     onPenghuniClick: () -> Unit,
     onKamarClick: () -> Unit,
+    onDetailClick: ()-> Unit
 ) {
     Row (
         modifier = Modifier
@@ -76,7 +77,7 @@ fun HalamanUtama(
                 )
             }
             Button(
-                onClick = { /*TODO*/ },
+                onClick = onDetailClick,
                 modifier = Modifier
                     .fillMaxWidth()
                     .height(56.dp)
