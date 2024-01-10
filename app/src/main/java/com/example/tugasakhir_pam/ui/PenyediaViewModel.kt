@@ -12,6 +12,7 @@ import com.example.tugasakhir_pam.ui.Kamar.EditKAmar.EditKamarViewModel
 import com.example.tugasakhir_pam.ui.Kamar.HomeKamar.HomeKamarViewModel
 import com.example.tugasakhir_pam.ui.Penghuni.AddPenghuni.AddPenghuniViewModel
 import com.example.tugasakhir_pam.ui.Penghuni.DetailPenghuni.DetailPenghuniViewModel
+import com.example.tugasakhir_pam.ui.Penghuni.EditPenghuni.EditPenghuniViewModel
 import com.example.tugasakhir_pam.ui.Penghuni.HomePenghuni.HomePenghuniViewModel
 
 fun CreationExtras.aplikasiAsrama(): AsramaApplication =
@@ -30,6 +31,12 @@ object PenyediaViewModel {
 
         initializer {
             DetailPenghuniViewModel(
+                createSavedStateHandle(),
+                aplikasiAsrama().container.penghuniRepository
+            )
+        }
+        initializer {
+            EditPenghuniViewModel(
                 createSavedStateHandle(),
                 aplikasiAsrama().container.penghuniRepository
             )
