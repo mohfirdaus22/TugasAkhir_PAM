@@ -29,20 +29,21 @@ class PenghuniRepositoryImpl(private val firestore: FirebaseFirestore) : Penghun
     }.flowOn(Dispatchers.IO)
 
 
-    override suspend fun save(asrama: Penghuni): String {
+    override suspend fun save(penghuni: Penghuni): String {
         return try {
-            val documentReference = firestore.collection("Penghuni").add(asrama).await()
+            val documentReference = firestore.collection("Penghuni")
+                .add(penghuni).await()
             // Update the Penghuni with the Firestore-generated DocumentReference
             firestore.collection("Penghuni").document(documentReference.id)
-                .set(asrama.copy(id = documentReference.id))
+                .set(penghuni.copy(id = documentReference.id))
             "Berhasil + ${documentReference.id}"
         } catch (e: Exception) {
             Log.w(ContentValues.TAG, "Error adding document", e)
             "Gagal $e"
         }
     }
-    override suspend fun update(asrama: Penghuni) {
-        firestore.collection("Penghuni").document(asrama.id).set(asrama).await()
+    override suspend fun update(penghuni: Penghuni) {
+        firestore.collection("Penghuni").document(penghuni.id).set(penghuni).await()
     }
 
     override suspend fun delete(penghuniId: String) {
