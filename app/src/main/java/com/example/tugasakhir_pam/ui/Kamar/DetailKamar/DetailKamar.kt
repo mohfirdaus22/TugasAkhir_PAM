@@ -12,6 +12,7 @@ import androidx.compose.material3.AlertDialog
 import androidx.compose.material3.Card
 import androidx.compose.material3.CardDefaults
 import androidx.compose.material3.ExperimentalMaterial3Api
+import androidx.compose.material3.FloatingActionButton
 import androidx.compose.material3.MaterialTheme
 import androidx.compose.material3.OutlinedButton
 import androidx.compose.material3.Scaffold
@@ -46,6 +47,7 @@ object DetailDestinationKamar: DestinasiNavigasi {
 @OptIn(ExperimentalMaterial3Api::class)
 @Composable
 fun DetailScreenKamar(
+    navigateToEditItemKamar: (String) -> Unit,
     navigateBack: () -> Unit,
     modifier: Modifier = Modifier,
     viewModel: DetailKamarViewModel = viewModel(factory = PenyediaViewModel.Factory)
@@ -60,7 +62,15 @@ fun DetailScreenKamar(
                 canNavigateBack = true,
                 navigateUp = navigateBack
             )
-        },
+        }, floatingActionButton = {
+            FloatingActionButton(
+                onClick = { navigateToEditItemKamar(uiStateKamar.value.addEventKamar.nokamar) },
+                shape = MaterialTheme.shapes.medium,
+                modifier = Modifier.padding(18.dp)
+            ) {
+
+            }
+        }
     ) { innerPadding ->
         ItemDetailsBodyKamar(
             detailUIStateKamar = uiStateKamar.value,
