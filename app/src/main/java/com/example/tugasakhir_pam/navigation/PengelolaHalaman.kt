@@ -12,6 +12,7 @@ import com.example.tugasakhir_pam.ui.Halaman.AwalDestination
 import com.example.tugasakhir_pam.ui.Halaman.DestinasiUtama
 import com.example.tugasakhir_pam.ui.Halaman.HalamanHome
 import com.example.tugasakhir_pam.ui.Halaman.HalamanUtama
+import com.example.tugasakhir_pam.ui.Kamar.HomeKamar.DestinasiHomeKamar
 import com.example.tugasakhir_pam.ui.Penghuni.AddPenghuni.AddPenghuni
 import com.example.tugasakhir_pam.ui.Penghuni.AddPenghuni.DestinasiEntryPenghuni
 import com.example.tugasakhir_pam.ui.Penghuni.DetailPenghuni.DetailDestinationPenghuni
@@ -36,7 +37,8 @@ fun PengelolaHalaman(navController: NavHostController = rememberNavController())
         }
         composable(DestinasiUtama.route) {
             HalamanUtama(
-                onPenghuniClick = { navController.navigate(DestinasiHomePenghuni.route) }
+                onPenghuniClick = { navController.navigate(DestinasiHomePenghuni.route) },
+                onKamarClick = {navController.navigate(DestinasiHomeKamar.route)}
             )
         }
         composable(DestinasiHomePenghuni.route){

@@ -29,6 +29,7 @@ object DestinasiUtama : DestinasiNavigasi {
 fun HalamanUtama(
 
     onPenghuniClick: () -> Unit,
+    onKamarClick: () -> Unit,
 ) {
     Row (
         modifier = Modifier
@@ -64,7 +65,7 @@ fun HalamanUtama(
                 )
             }
             Button(
-                onClick = { /*TODO*/ },
+                onClick = { onKamarClick },
                 modifier = Modifier
                     .fillMaxWidth()
                     .height(56.dp)
