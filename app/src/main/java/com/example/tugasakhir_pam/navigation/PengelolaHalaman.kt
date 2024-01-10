@@ -61,7 +61,8 @@ fun PengelolaHalaman(navController: NavHostController = rememberNavController())
         ) { backStackEntry ->
             val anggotaId = backStackEntry.arguments?.getString(DetailDestinationPenghuni.penghuniId)
             penghuniId?.let {
-
+                DetailScreenPenghuni(
+                    navigateBack = { /*TODO*/ })
             }
         }
 
