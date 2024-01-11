@@ -1,26 +1,43 @@
 package com.example.tugasakhir_pam.ui.Penghuni.AddPenghuni
 
+import androidx.compose.foundation.clickable
+import androidx.compose.foundation.interaction.MutableInteractionSource
 import androidx.compose.foundation.layout.Arrangement
+import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.Column
+import androidx.compose.foundation.layout.Row
 import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.rememberScrollState
 import androidx.compose.foundation.text.KeyboardOptions
 import androidx.compose.foundation.verticalScroll
+import androidx.compose.material.icons.Icons
+import androidx.compose.material.icons.filled.ArrowDropDown
 import androidx.compose.material3.Button
+import androidx.compose.material3.DropdownMenu
+import androidx.compose.material3.DropdownMenuItem
 import androidx.compose.material3.ExperimentalMaterial3Api
+import androidx.compose.material3.Icon
 import androidx.compose.material3.MaterialTheme
 import androidx.compose.material3.OutlinedTextField
 import androidx.compose.material3.Scaffold
 import androidx.compose.material3.Text
 import androidx.compose.material3.TopAppBarDefaults
 import androidx.compose.runtime.Composable
+import androidx.compose.runtime.CompositionLocalProvider
+import androidx.compose.runtime.getValue
+import androidx.compose.runtime.mutableStateOf
+import androidx.compose.runtime.remember
 import androidx.compose.runtime.rememberCoroutineScope
+import androidx.compose.runtime.setValue
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.input.nestedscroll.nestedScroll
 import androidx.compose.ui.text.input.KeyboardType
 import androidx.compose.ui.unit.dp
 import androidx.lifecycle.viewmodel.compose.viewModel
+import androidx.wear.compose.material3.ContentAlpha
+import androidx.wear.compose.material3.LocalContentAlpha
+import com.example.tugasakhir_pam.model.Kamar
 import com.example.tugasakhir_pam.ui.AddEventPenghuni
 import com.example.tugasakhir_pam.ui.AddUIStatePenghuni
 import com.example.tugasakhir_pam.ui.PenghuniTopAppBar
@@ -43,6 +60,10 @@ fun AddPenghuni(
 ) {
     val coroutineScope = rememberCoroutineScope()
     val scrollBehavior = TopAppBarDefaults.enterAlwaysScrollBehavior()
+    val kamarList: List<Kamar> = listOf(Kamar())
+    var selectedKamar: Kamar? by remember {
+        mutableStateOf(null)
+    }
 
     Scaffold(
         modifier = modifier.nestedScroll(scrollBehavior.nestedScrollConnection),
@@ -64,6 +85,9 @@ fun AddPenghuni(
                     navigateBack()
                 }
             },
+            kamarList = kamarList,
+            selectedKamar = selectedKamar,
+            onKamarSelected = { selectedKamar = it},
             modifier = Modifier
                 .padding(innerPadding)
                 .verticalScroll(rememberScrollState())
@@ -78,6 +102,9 @@ fun EntryBodyPenghuni(
     addUIStatePenghuni: AddUIStatePenghuni,
     onPenghuniValueChange: (AddEventPenghuni) -> Unit,
     onSaveClickPenghuni: () -> Unit,
+    kamarList: List<Kamar>,
+    selectedKamar: Kamar?,
+    onKamarSelected: (Kamar) -> Unit,
     modifier: Modifier = Modifier
 ){
     Column(
@@ -87,6 +114,9 @@ fun EntryBodyPenghuni(
         FormInputPenghuni(
             addEventPenghuni = addUIStatePenghuni.addEventPenghuni,
             onValueChangePenghuni = onPenghuniValueChange,
+            kamarList = kamarList,
+            selectedKamar = selectedKamar,
+            onKamarSelected= onKamarSelected,
             modifier = Modifier.fillMaxWidth()
         )
 
@@ -100,10 +130,63 @@ fun EntryBodyPenghuni(
     }
 }
 
+@Composable
+fun KamarDropdownMenu(
+    kamarList: List<Kamar>,
+    selectedKamar: Kamar?,
+    onKamarSelected: (Kamar) -> Unit
+) {
+    var expanded by remember { mutableStateOf(false) }
+
+    Column {
+        Text("Pilih Kamar", color = MaterialTheme.colorScheme.primary)
+        Box(
+            modifier = Modifier
+                .fillMaxWidth()
+                .clickable { expanded = !expanded }
+        ) {
+            Row(
+                modifier = Modifier
+                    .fillMaxWidth()
+                    .padding(vertical = 8.dp),
+                horizontalArrangement = Arrangement.SpaceBetween
+            ) {
+                Text(selectedKamar?.nokamar ?: "Pilih Kamar")
+                Icon(
+                    imageVector = Icons.Default.ArrowDropDown,
+                    contentDescription = null,
+                    tint = MaterialTheme.colorScheme.primary
+                )
+            }
+
+            DropdownMenu(
+                expanded = expanded,
+                onDismissRequest = { expanded = false }
+            ) {
+                kamarList.forEach { kamar ->
+                    CompositionLocalProvider(LocalContentAlpha provides ContentAlpha.medium) {
+                        // Menggunakan modifier.clickable pada Text
+                        Text(
+                            text = kamar.nokamar,
+                            modifier = Modifier.clickable {
+                                onKamarSelected(Kamar())
+                                expanded = false
+                            }
+                        )
+                    }
+                }
+            }
+        }
+    }
+}
+
 @OptIn(ExperimentalMaterial3Api::class)
 @Composable
 fun FormInputPenghuni(
     addEventPenghuni: AddEventPenghuni,
+    kamarList: List<Kamar>,
+    selectedKamar: Kamar?,
+    onKamarSelected: (Kamar) -> Unit,
     modifier: Modifier = Modifier,
     onValueChangePenghuni: (AddEventPenghuni) -> Unit = {},
     enabled: Boolean = true
@@ -148,5 +231,9 @@ fun FormInputPenghuni(
             enabled = enabled,
             singleLine = true
         )
+        KamarDropdownMenu(
+            kamarList = kamarList,
+            selectedKamar = selectedKamar,
+            onKamarSelected = onKamarSelected)
     }
 }
