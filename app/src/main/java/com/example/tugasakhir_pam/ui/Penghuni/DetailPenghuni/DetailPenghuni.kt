@@ -50,8 +50,8 @@ object DetailDestinationPenghuni: DestinasiNavigasi {
 @OptIn(ExperimentalMaterial3Api::class)
 @Composable
 fun DetailScreenPenghuni(
-    navigateBack: () -> Unit,
     navigateToEditItemPenghuni: (String) -> Unit,
+    navigateBack: () -> Unit,
     modifier: Modifier = Modifier,
     viewModel: DetailPenghuniViewModel = viewModel(factory = PenyediaViewModel.Factory)
 ) {

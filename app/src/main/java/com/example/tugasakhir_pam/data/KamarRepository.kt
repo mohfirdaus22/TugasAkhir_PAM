@@ -22,7 +22,7 @@ interface KamarRepository {
 class KamarRepositoryImpl(private val firestore: FirebaseFirestore) : KamarRepository {
     override fun getAll(): Flow<List<Kamar>> = flow {
         val snapshot = firestore.collection("Kamar")
-            .orderBy("nama", Query.Direction.ASCENDING)
+            .orderBy("nokamar", Query.Direction.ASCENDING)
             .get()
             .await()
         val kamar = snapshot.toObjects(Kamar::class.java)

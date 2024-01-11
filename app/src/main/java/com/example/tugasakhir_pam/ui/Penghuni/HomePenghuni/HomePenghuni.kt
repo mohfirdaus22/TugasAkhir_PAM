@@ -38,7 +38,7 @@ import com.example.tugasakhir_pam.model.Penghuni
 import com.example.tugasakhir_pam.navigation.DestinasiNavigasi
 
 object DestinasiHomePenghuni : DestinasiNavigasi {
-    override val route = "home"
+    override val route = "home_penghuni"
     override val titleRes = "Penghuni"
 }
 @OptIn(ExperimentalMaterial3Api::class)

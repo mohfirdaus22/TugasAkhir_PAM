@@ -21,7 +21,7 @@ interface PenghuniRepository {
 class PenghuniRepositoryImpl(private val firestore: FirebaseFirestore) : PenghuniRepository {
     override fun getAll(): Flow<List<Penghuni>> = flow {
         val snapshot = firestore.collection("Penghuni")
-            .orderBy("nama", Query.Direction.ASCENDING)
+            .orderBy("name", Query.Direction.ASCENDING)
             .get()
             .await()
         val penghuni = snapshot.toObjects(Penghuni::class.java)
