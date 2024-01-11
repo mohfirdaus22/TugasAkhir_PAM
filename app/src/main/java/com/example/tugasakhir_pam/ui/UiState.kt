@@ -75,7 +75,7 @@ fun Kamar.toUIStateKamar(): AddUIStateKamar = AddUIStateKamar(
 )
 
 data class DetailUIStatePenghuni(
-    val addEventPenghuni: AddEventPenghuni = AddEventPenghuni()
+    val  addEventPenghuni: AddEventPenghuni = AddEventPenghuni()
 )
 
 data class DetailUIStateKamar(

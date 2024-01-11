@@ -25,7 +25,7 @@ import com.example.tugasakhir_pam.ui.Penghuni.AddPenghuni.DestinasiEntryPenghuni
 import com.example.tugasakhir_pam.ui.Penghuni.DetailPenghuni.DetailDestinationPenghuni
 import com.example.tugasakhir_pam.ui.Penghuni.DetailPenghuni.DetailScreenPenghuni
 import com.example.tugasakhir_pam.ui.Penghuni.EditPenghuni.EditDestinationPenghuni
-import com.example.tugasakhir_pam.ui.Penghuni.EditPenghuni.EditScreenPenghuni
+import com.example.tugasakhir_pam.ui.Penghuni.EditPenghuni.EditPenghuniScreen
 import com.example.tugasakhir_pam.ui.Penghuni.HomePenghuni.DestinasiHomePenghuni
 import com.example.tugasakhir_pam.ui.Penghuni.HomePenghuni.PenghuniScreen
 
@@ -61,7 +61,19 @@ fun PengelolaHalaman(navController: NavHostController = rememberNavController())
                 }
             )
         }
-
+        composable(
+            route = EditDestinationPenghuni.routeWithArgs,
+            arguments = listOf(navArgument(EditDestinationPenghuni.penghuniId) {
+                type = NavType.StringType
+            })
+        ) { backStackEntry ->
+            val itemId = backStackEntry.arguments?.getString(EditDestinationPenghuni.penghuniId)
+            itemId?.let {
+                EditPenghuniScreen(
+                    navigateBackPenghuni = { navController.popBackStack() },
+                    onNavigateUpPenghuni = { navController.navigateUp() })
+            }
+        }
         composable(
             route = DetailDestinationPenghuni.routeWithArgs,
             arguments = listOf(navArgument(DetailDestinationPenghuni.penghuniId){
@@ -81,19 +93,6 @@ fun PengelolaHalaman(navController: NavHostController = rememberNavController())
             AddPenghuni(
                 navigateBack = { navController.popBackStack() }
             )
-        }
-        composable(
-            route = EditDestinationPenghuni.routeWithArgs,
-            arguments = listOf(navArgument(EditDestinationPenghuni.penghuniId) {
-                type = NavType.StringType
-            })
-        ) { backStackEntry ->
-            val penghuniId = backStackEntry.arguments?.getString(EditDestinationPenghuni.penghuniId)
-            penghuniId?.let {
-                EditScreenPenghuni(
-                    navigateBackPenghuni = { navController.popBackStack() },
-                    onNavigateUpPenghuni = { navController.navigateUp() })
-            }
         }
         composable(
             route = EditDestinationKamar.routeWithArgs,

@@ -16,15 +16,16 @@ import com.example.tugasakhir_pam.ui.PenyediaViewModel
 import kotlinx.coroutines.launch
 
 object EditDestinationPenghuni : DestinasiNavigasi {
-    override val route = "item edit penghuni"
+    override val route = "item_edit_penghuni"
     override val titleRes ="Edit Penghuni"
     const val penghuniId = "penghuniId"
-    val routeWithArgs = "${EditDestinationPenghuni.route}/{${penghuniId}"
+    val routeWithArgs = "${EditDestinationPenghuni.route}/{${EditDestinationPenghuni.penghuniId}}"
+
 }
 
 @OptIn(ExperimentalMaterial3Api::class)
 @Composable
-fun EditScreenPenghuni(
+fun EditPenghuniScreen(
     navigateBackPenghuni: () -> Unit,
     onNavigateUpPenghuni: () -> Unit,
     modifier: Modifier = Modifier,
