@@ -25,6 +25,7 @@ import androidx.compose.material3.Text
 import androidx.compose.material3.TopAppBarDefaults
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.CompositionLocalProvider
+import androidx.compose.runtime.LaunchedEffect
 import androidx.compose.runtime.getValue
 import androidx.compose.runtime.mutableStateOf
 import androidx.compose.runtime.remember
@@ -43,7 +44,11 @@ import com.example.tugasakhir_pam.ui.AddUIStatePenghuni
 import com.example.tugasakhir_pam.ui.PenghuniTopAppBar
 import com.example.tugasakhir_pam.ui.PenyediaViewModel
 import com.example.tugasakhir_pam.navigation.DestinasiNavigasi
+import com.google.firebase.firestore.FirebaseFirestore
+import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.launch
+import kotlinx.coroutines.tasks.await
+import kotlinx.coroutines.withContext
 
 object DestinasiEntryPenghuni : DestinasiNavigasi{
     override val route = "item entry penghuni"
@@ -60,9 +65,17 @@ fun AddPenghuni(
 ) {
     val coroutineScope = rememberCoroutineScope()
     val scrollBehavior = TopAppBarDefaults.enterAlwaysScrollBehavior()
-    val kamarList: List<Kamar> = listOf(Kamar())
+
+    var kamarList by remember { mutableStateOf<List<Kamar>>(emptyList()) }
     var selectedKamar: Kamar? by remember {
         mutableStateOf(null)
+    }
+
+    // LaunchedEffect to fetch data when the composable is first launched
+    LaunchedEffect(true) {
+        kamarList = fetchKamarFromFirestore(
+
+        )
     }
 
     Scaffold(
@@ -87,12 +100,36 @@ fun AddPenghuni(
             },
             kamarList = kamarList,
             selectedKamar = selectedKamar,
-            onKamarSelected = { selectedKamar = it},
+            onKamarSelected = {selectedKamar = it},
             modifier = Modifier
                 .padding(innerPadding)
                 .verticalScroll(rememberScrollState())
-                .fillMaxWidth()
+                .fillMaxWidth(),
+
         )
+    }
+}
+suspend fun fetchKamarFromFirestore(): List<Kamar> {
+    val firestore = FirebaseFirestore.getInstance()
+    return withContext(Dispatchers.IO) {
+        try {
+            val querySnapshot = firestore.collection("Kamar")
+                .get()
+                .await()
+
+            val kamarList = mutableListOf<Kamar>()
+
+            for (document in querySnapshot.documents) {
+                val nokamar = document.getString("nokamar") ?: ""
+                val kamar = Kamar()
+                kamarList.add(kamar)
+            }
+
+            kamarList
+        } catch (e: Exception) {
+            // Handle exceptions or errors
+            emptyList()
+        }
     }
 }
 
