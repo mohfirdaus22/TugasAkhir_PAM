@@ -22,7 +22,7 @@ interface KamarRepository {
 class KamarRepositoryImpl(private val firestore: FirebaseFirestore) : KamarRepository {
     override fun getAll(): Flow<List<Kamar>> = flow {
         val snapshot = firestore.collection("Kamar")
-            .orderBy("nokamar", Query.Direction.ASCENDING)
+            .orderBy("id", Query.Direction.ASCENDING)
             .get()
             .await()
         val kamar = snapshot.toObjects(Kamar::class.java)
@@ -36,7 +36,7 @@ class KamarRepositoryImpl(private val firestore: FirebaseFirestore) : KamarRepos
                 .add(kamar).await()
             // Update the Kamar with the Firestore-generated DocumentReference
             firestore.collection("Kamar").document(documentReference.id)
-                .set(kamar.copy(nokamar = documentReference.id))
+                .set(kamar.copy(id = documentReference.id))
             "Berhasil + ${documentReference.id}"
         } catch (e: Exception) {
             Log.w(ContentValues.TAG, "Error adding document", e)
@@ -45,7 +45,7 @@ class KamarRepositoryImpl(private val firestore: FirebaseFirestore) : KamarRepos
     }
 
     override suspend fun update(kamar: Kamar) {
-        firestore.collection("Kamar").document(kamar.nokamar).set(kamar).await()
+        firestore.collection("Kamar").document(kamar.id).set(kamar).await()
     }
 
     override suspend fun delete(kamarId: String) {

@@ -106,7 +106,7 @@ fun BodyHomeKamar(
                 itemKamar = itemKamar,
                 modifier = Modifier
                     .padding(horizontal = 8.dp),
-                onItemClick = { onKamarClick(it.nokamar) }
+                onItemClick = { onKamarClick(it.id) }
             )
         }
     }
@@ -120,7 +120,7 @@ fun ListKamar(
     LazyColumn(
         modifier = modifier
     ) {
-        this.items(itemKamar, key = {it.nokamar}){kamar ->
+        this.items(itemKamar, key = {it.id}){kamar ->
             DataKamar(
                 kamar = kamar,
                 modifier = Modifier

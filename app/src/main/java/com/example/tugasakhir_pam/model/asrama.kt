@@ -12,10 +12,11 @@ data class  Penghuni(
 
 
 data class Kamar(
+    val id: String,
     val nokamar: String,
     val tipe: String,
     val kapasitas: String,
     val harga: String
 ){
-constructor(): this("","","","")
+constructor(): this("","","","","")
 }

@@ -22,6 +22,7 @@ data class  AddEventPenghuni(
 )
 
 data class  AddEventKamar(
+    val id : String = "",
     val nokamar: String = "",
     val tipe: String = "",
     val kapasitas: String = "",
@@ -37,6 +38,7 @@ fun Penghuni.toDetailPenghuni(): AddEventPenghuni = AddEventPenghuni(
 )
 
 fun Kamar.toDetailKamar(): AddEventKamar = AddEventKamar(
+    id = id,
     nokamar = nokamar,
     tipe = tipe,
     kapasitas = kapasitas,
@@ -52,6 +54,7 @@ fun AddEventPenghuni.toPenghuni() = Penghuni(
 )
 
 fun AddEventKamar.toKamar() = Kamar(
+    id = id,
     nokamar = nokamar,
     tipe = tipe,
     kapasitas = kapasitas,

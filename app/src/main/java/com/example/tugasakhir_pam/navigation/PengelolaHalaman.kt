@@ -121,11 +121,11 @@ fun PengelolaHalaman(navController: NavHostController = rememberNavController())
         }
         composable(
             route = DetailDestinationKamar.routeWithArgs,
-            arguments = listOf(navArgument(DetailDestinationKamar.kamarId){
+            arguments = listOf(navArgument(DetailDestinationKamar.itemId){
                 type = NavType.StringType
             })
         ){backStackEntry ->
-            val kamarId = backStackEntry.arguments?.getString(DetailDestinationKamar.kamarId)
+            val kamarId = backStackEntry.arguments?.getString(DetailDestinationKamar.itemId)
             kamarId?.let {
                 DetailScreenKamar(navigateToEditItemKamar = {
                     navController.navigate("${EditDestinationKamar.route}/$kamarId")

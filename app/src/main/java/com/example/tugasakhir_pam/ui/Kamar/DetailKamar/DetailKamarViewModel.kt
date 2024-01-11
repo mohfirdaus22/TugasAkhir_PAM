@@ -20,7 +20,7 @@ class DetailKamarViewModel (
         private const val TIMEOUT_MILLIS = 5_000L
     }
 
-    val kamarId: String = checkNotNull(savedStateHandle[DetailDestinationKamar.kamarId])
+    val kamarId: String = checkNotNull(savedStateHandle[DetailDestinationKamar.itemId])
     val uiStateKamar: StateFlow<DetailUIStateKamar> =
         repository.getKamarById(kamarId)
             .filterNotNull()

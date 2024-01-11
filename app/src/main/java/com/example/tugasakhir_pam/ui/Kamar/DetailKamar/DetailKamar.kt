@@ -44,8 +44,8 @@ import kotlinx.coroutines.launch
 object DetailDestinationKamar: DestinasiNavigasi {
     override val route = "item_details_kamar"
     override val titleRes = "Detail Kamar"
-    const val kamarId = "itemKamarId"
-    val routeWithArgs = "$route/{$kamarId}"
+    const val itemId = "itemKamarId"
+    val routeWithArgs = "$route/{$itemId}"
 }
 
 @OptIn(ExperimentalMaterial3Api::class)
@@ -68,7 +68,7 @@ fun DetailScreenKamar(
             )
         }, floatingActionButton = {
             FloatingActionButton(
-                onClick = { navigateToEditItemKamar(uiStateKamar.value.addEventKamar.nokamar) },
+                onClick = { navigateToEditItemKamar(uiStateKamar.value.addEventKamar.id) },
                 shape = MaterialTheme.shapes.medium,
                 modifier = Modifier.padding(18.dp)
             ) {
