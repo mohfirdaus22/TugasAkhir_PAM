@@ -71,12 +71,7 @@ fun AddPenghuni(
         mutableStateOf(null)
     }
 
-    // LaunchedEffect to fetch data when the composable is first launched
-    LaunchedEffect(true) {
-        kamarList = fetchKamarFromFirestore(
 
-        )
-    }
 
     Scaffold(
         modifier = modifier.nestedScroll(scrollBehavior.nestedScrollConnection),
@@ -109,29 +104,7 @@ fun AddPenghuni(
         )
     }
 }
-suspend fun fetchKamarFromFirestore(): List<Kamar> {
-    val firestore = FirebaseFirestore.getInstance()
-    return withContext(Dispatchers.IO) {
-        try {
-            val querySnapshot = firestore.collection("Kamar")
-                .get()
-                .await()
 
-            val kamarList = mutableListOf<Kamar>()
-
-            for (document in querySnapshot.documents) {
-                val nokamar = document.getString("nokamar") ?: ""
-                val kamar = Kamar()
-                kamarList.add(kamar)
-            }
-
-            kamarList
-        } catch (e: Exception) {
-            // Handle exceptions or errors
-            emptyList()
-        }
-    }
-}
 
 
 @Composable
@@ -268,9 +241,5 @@ fun FormInputPenghuni(
             enabled = enabled,
             singleLine = true
         )
-        KamarDropdownMenu(
-            kamarList = kamarList,
-            selectedKamar = selectedKamar,
-            onKamarSelected = onKamarSelected)
     }
 }
